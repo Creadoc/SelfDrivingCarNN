@@ -10,7 +10,7 @@ const ctx = canvas.getContext("2d");
 const networkCtx = networkCanvas.getContext("2d");
 const road = new Road(canvas.width / 2, canvas.width * 0.9);
 
-N = 100;
+N = 1000;
 const cars = generateCars(N);
 //initially setting it to the first car, but this will change as the program runs.
 let bestCar = cars[0];
@@ -20,7 +20,7 @@ if (localStorage.getItem("bestBrain")) {
     cars[i].brain = JSON.parse(localStorage.getItem("bestBrain"));
     if (i != 0) {
       //set the difference on how much will be learned from 0 to 1 (100%)
-      NeuralNetwork.mutate(cars[i].brain, 0.15);
+      NeuralNetwork.mutate(cars[i].brain, 0.03);
     }
   }
 }
@@ -31,6 +31,13 @@ const traffic = [
   new Car(road.getLaneCenter(1), -100, 30, 50, "DUMMY", 3),
   new Car(road.getLaneCenter(0), -300, 30, 50, "DUMMY", 3),
   new Car(road.getLaneCenter(2), -300, 30, 50, "DUMMY", 3),
+  new Car(road.getLaneCenter(0), -500, 30, 50, "DUMMY", 3),
+  new Car(road.getLaneCenter(1), -500, 30, 50, "DUMMY", 3),
+  new Car(road.getLaneCenter(1), -700, 30, 50, "DUMMY", 3),
+  new Car(road.getLaneCenter(2), -700, 30, 50, "DUMMY", 3),
+  new Car(road.getLaneCenter(2), -900, 30, 50, "DUMMY", 3),
+  new Car(road.getLaneCenter(1), -900, 30, 50, "DUMMY", 3),
+  new Car(road.getLaneCenter(0), -1100, 30, 50, "DUMMY", 2),
 ];
 animate();
 

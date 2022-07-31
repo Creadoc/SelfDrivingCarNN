@@ -20,7 +20,7 @@ if (localStorage.getItem("bestBrain")) {
     cars[i].brain = JSON.parse(localStorage.getItem("bestBrain"));
     if (i != 0) {
       //set the difference on how much will be learned from 0 to 1 (100%)
-      NeuralNetwork.mutate(cars[i].brain, 0.03);
+      NeuralNetwork.mutate(cars[i].brain, 0.2);
     }
   }
 }
